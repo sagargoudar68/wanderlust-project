@@ -1,7 +1,15 @@
 <% layout("layouts/boilerplate") %>
 
-<div class="row">
-  <div class="alert alert-danger col-6 offset-3" role="alert">
-    <p class="alert-heading"><%= err.message %></p>
+<div class="row mt-3">
+  <div class="alert alert-danger col-6 offset-3 text-center" role="alert">
+
+    <h4 class="alert-heading">Something went wrong</h4>
+
+    <% if (err && err.message) { %>
+      <p><%= err.message %></p>
+    <% } else { %>
+      <p>Unknown error occurred</p>
+    <% } %>
+
   </div>
 </div>
