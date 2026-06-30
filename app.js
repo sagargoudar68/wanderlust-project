@@ -103,9 +103,14 @@ app.use((req, res, next) => {
 //   res.send(registredUser);
 // })
 
+// Redirect home page to listings
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 app.use("/listings", listingsRouter);
-app.use("/listings/:id/reviews", reviewsRouter);  
-app.use("/",userRouter);
+app.use("/listings/:id/reviews", reviewsRouter);
+app.use("/", userRouter);
 
 app.use((req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
